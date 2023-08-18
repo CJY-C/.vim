@@ -22,12 +22,38 @@ plugpac#Begin({
   verbose: 2,
 })
 
+# Opt plugins [[[2
 Pack 'k-takata/minpac', {'type': 'opt'}
+# ]]]
+
+# Start plugins [[[2
+Pack 'vim-python/python-syntax', { 'type': 'start' }
+Pack 'lifepillar/vim-gruvbox8', { 'type': 'start' }
+Pack 'tomtom/tcomment_vim', { 'type': 'start' }
+Pack 'Eliot00/auto-pairs', { 'type': 'start' }
+Pack 'github/copilot.vim', { 'type': 'start' }
+# 如果文件类型是markdown，那么就使用vim-markdown-preview插件
+# 不要使用&filetype == 'markdown'，因为这个时候filetype还没有被设置
+Pack 'godlygeek/tabular', { 'type': 'start' }
+Pack 'preservim/vim-markdown', { 'type': 'start' }
+Pack 'dkarter/bullets.vim', { 'type': 'start' }
+Pack 'junegunn/vim-peekaboo', { 'type': 'start' }
+Pack 'sheerun/vim-polyglot', { 'type': 'start' }
+# ]]]
+
 
 Pack 'junegunn/fzf', { 'delay': 1000 }
 Pack 'junegunn/fzf.vim'
 Pack 'rlue/vim-barbaric'
-Pack 'junegunn/vim-peekaboo'
+Pack 'yegappan/lsp'
+Pack 'tpope/vim-surround', { 'type': 'delay' }
+# Pack 'skywind3000/vim-terminal-help', { 'type': 'delay' }
+Pack 'honza/vim-snippets'
+Pack 'SirVer/ultisnips'
+# post install (yarn install | npm install) then load plugin only for editing supported files
+Pack 'prettier/vim-prettier', {
+  \ 'do': '!yarn install --frozen-lockfile --production',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 plugpac#End()
 
 # ]]]
